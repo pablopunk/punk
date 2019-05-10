@@ -1,8 +1,8 @@
-# [WIP] beer-me
+# [WIP] beerme
 
 <p align="center">
   <a href="https://github.com/pablopunk/miny"><img src="https://img.shields.io/badge/made_with-miny-1eced8.svg" /> </a>
-  <a href="https://www.npmjs.com/package/beer-me"><img src="https://img.shields.io/npm/dt/beer-me.svg" /></a>
+  <a href="https://www.npmjs.com/package/beerme"><img src="https://img.shields.io/npm/dt/beerme.svg" /></a>
 </p>
 
 <p align="center">
@@ -12,13 +12,13 @@
 ## Install
 
 ```bash
-npm install -g beer-me
+npm install -g beerme
 ```
 
 ## Usage
 
 ```bash
-$ beer-me --help
+$ beerme --help
 ```
 
 ## License

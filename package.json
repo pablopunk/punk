@@ -1,10 +1,10 @@
 {
-  "name": "beer-me",
+  "name": "beerme",
   "description": "CLI tool to provide custom configurations on the go",
   "version": "0.0.2",
   "author": "Pablo Varela <pablovarela182@gmail.com>",
   "bugs": {
-    "url": "https://github.com/pablopunk/beer-me/issues",
+    "url": "https://github.com/pablopunk/beerme/issues",
     "email": "pablovarela182@gmail.com"
   },
   "contributors": [
@@ -19,10 +19,10 @@
     "husky": "*"
   },
   "scripts": {},
-  "homepage": "https://github.com/pablopunk/beer-me",
+  "homepage": "https://github.com/pablopunk/beerme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pablopunk/beer-me"
+    "url": "https://github.com/pablopunk/beerme"
   },
   "keywords": [
     "provider",
