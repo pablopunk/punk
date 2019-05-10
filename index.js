@@ -6,13 +6,30 @@ const mri = require('mri')
 
 const commandsFolder = path.join(__dirname, 'commands')
 const getCommandFile = cmd => path.join(commandsFolder, `${cmd}.js`)
+const getCommandsAvailable = () => {
+  const files = fs.readdirSync(commandsFolder)
+  const commands = files.map(f => f.split('.')[0])
+
+  return commands
+}
 
 if (!fs.existsSync(commandsFolder)) {
   console.log('No commands available')
   process.exit(1)
 }
 
-const { _: args } = mri(process.argv.slice(2))
+const { _: args, help } = mri(process.argv.slice(2))
+
+if (help) {
+  console.log(`
+  Commands available:
+
+  ${getCommandsAvailable().join('\n  ')}
+  `)
+
+  process.exit(0)
+}
+
 const commandToExecute = args[0]
 
 if (!commandToExecute) {
