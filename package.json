@@ -1,7 +1,7 @@
 {
   "name": "beer-me",
   "description": "CLI tool to provide custom configurations on the go",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author": "Pablo Varela <pablovarela182@gmail.com>",
   "bugs": {
     "url": "https://github.com/pablopunk/beer-me/issues",
