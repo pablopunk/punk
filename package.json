@@ -1,0 +1,49 @@
+{
+  "name": "beer-me",
+  "description": "CLI tool to provide custom configurations on the go",
+  "version": "1.0.0",
+  "author": "Pablo Varela <pablovarela182@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/pablopunk/beer-me/issues",
+    "email": "pablovarela182@gmail.com"
+  },
+  "contributors": [
+    "Pablo Varela <pablovarela182@gmail.com>"
+  ],
+  "dependencies": {
+    "mri": "^1.1.4"
+  },
+  "devDependencies": {
+    "prettier": "*",
+    "pretty-quick": "*",
+    "husky": "*"
+  },
+  "scripts": {},
+  "homepage": "https://github.com/pablopunk/beer-me",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pablopunk/beer-me"
+  },
+  "keywords": [
+    "provider",
+    "configuration",
+    "prettier",
+    "project",
+    "scaffolding",
+    "tool",
+    "cli"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "bin": "index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2
+  }
+}
