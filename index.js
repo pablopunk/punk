@@ -18,9 +18,9 @@ if (!fs.existsSync(commandsFolder)) {
   process.exit(1)
 }
 
-const { _: args, help } = mri(process.argv.slice(2))
+const { _: args, help, h } = mri(process.argv.slice(2))
 
-if (help) {
+if (help || h) {
   console.log(`
   Commands available:
 
