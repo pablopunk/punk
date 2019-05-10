@@ -1,4 +1,4 @@
-# [WIP] beer-me-jim
+# beer-me-jim
 
 <p align="center">
   <a href="https://github.com/pablopunk/miny"><img src="https://img.shields.io/badge/made_with-miny-1eced8.svg" /> </a>
@@ -7,6 +7,8 @@
 
 <p align="center">
   <i>CLI tool to provide custom configurations on the go</i>
+  <br>
+  <img src="https://github.com/pablopunk/art/raw/master/beer-me-jim/beer-me-jim.png" alt="dwight and jim">
 </p>
 
 ## Install
@@ -18,7 +20,7 @@ npm install -g beer-me-jim
 ## Usage
 
 ```bash
-$ beer-me-jim --help
+$ beerme --help
 ```
 
 ## License
