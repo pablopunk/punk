@@ -1,6 +1,11 @@
 const path = require('path')
 const fs = require('fs')
 
+const devDeps = {
+  husky: '*',
+  'pretty-quick': '*'
+}
+
 const additions = {
   husky: {
     hooks: {
@@ -31,6 +36,18 @@ module.exports = () => {
 
     pkg[field] = additions[field]
   }
+
+  for (const dep in devDeps) {
+    if (!(dep in pkg.devDependencies)) {
+      pkg.devDependencies[dep] = devDeps[dep]
+    }
+  }
+
+  console.log(
+    `Installed [${Object.keys(devDeps).join(
+      ', '
+    )}] as devDependencies. Run 'npm install'`
+  )
 
   fs.writeFile(
     packageJsonFile,
