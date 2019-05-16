@@ -19,7 +19,26 @@ const additions = {
   }
 }
 
-module.exports = () => {
+module.exports = args => {
+  if (args.h || args.help) {
+    console.log(`
+    $ beerme prettier [ -h || --help ]
+
+    Sets up prettier to format all modified files before you commit them.
+    It will install some devDependencies to your package.json:
+
+        ${Object.keys(devDeps).join(' - ')}
+
+    Notice there will be 2 more config objects in your package.json:
+${JSON.stringify(additions, null, 4)
+  .split('\n')
+  .map(_ => '    ' + _)
+  .join('\n')}
+    `)
+
+    return
+  }
+
   const packageJsonFile = path.join(process.cwd(), 'package.json')
 
   try {

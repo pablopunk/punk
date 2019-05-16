@@ -19,8 +19,16 @@ npm install -g beer-me-jim
 
 ## Usage
 
+Show commands available:
+
 ```bash
 $ beerme --help
+```
+
+You can pass arguments to commands too:
+
+```bash
+$ beerme prettier -h
 ```
 
 ## License

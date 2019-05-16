@@ -18,19 +18,22 @@ if (!fs.existsSync(commandsFolder)) {
   process.exit(1)
 }
 
-const { _: args, help, h } = mri(process.argv.slice(2))
+const args = mri(process.argv.slice(2))
+const { _: mainArgs, help, h } = args
 
-if (help || h) {
-  console.log(`
-  Commands available:
+if (mainArgs.length < 1) {
+  if (help || h) {
+    console.log(`
+    Commands available:
 
-  ${getCommandsAvailable().join('\n  ')}
-  `)
+    ${getCommandsAvailable().join('\n  ')}
+    `)
 
-  process.exit(0)
+    process.exit(0)
+  }
 }
 
-const commandToExecute = args[0]
+const commandToExecute = mainArgs[0]
 
 if (!commandToExecute) {
   console.log('No command provided')
@@ -45,4 +48,4 @@ if (!fs.existsSync(commandFile)) {
 }
 
 const commandFunction = require(commandFile)
-commandFunction()
+commandFunction(args)
