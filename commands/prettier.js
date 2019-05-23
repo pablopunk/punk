@@ -3,6 +3,7 @@ const fs = require('fs')
 
 const devDeps = {
   husky: '*',
+  prettier: '*',
   'pretty-quick': '*'
 }
 
