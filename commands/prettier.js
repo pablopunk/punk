@@ -57,6 +57,10 @@ ${JSON.stringify(additions, null, 4)
     pkg[field] = additions[field]
   }
 
+  if (!pkg.hasOwnProperty('devDependencies')) {
+    pkg.devDependencies = {}
+  }
+
   for (const dep in devDeps) {
     if (!(dep in pkg.devDependencies)) {
       pkg.devDependencies[dep] = devDeps[dep]
