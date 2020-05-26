@@ -11,12 +11,13 @@
     "Pablo Varela <pablovarela182@gmail.com>"
   ],
   "dependencies": {
+    "kleur": "^3.0.3",
     "mri": "^1.1.4"
   },
   "devDependencies": {
+    "husky": "*",
     "prettier": "*",
-    "pretty-quick": "*",
-    "husky": "*"
+    "pretty-quick": "*"
   },
   "scripts": {},
   "homepage": "https://github.com/pablopunk/punk",

@@ -3,12 +3,13 @@
 const path = require('path')
 const fs = require('fs')
 const mri = require('mri')
+const { cyan, red, bold } = require('kleur')
 
 const commandsFolder = path.join(__dirname, 'commands')
-const getCommandFile = cmd => path.join(commandsFolder, `${cmd}.js`)
+const getCommandFile = (cmd) => path.join(commandsFolder, `${cmd}.js`)
 const getCommandsAvailable = () => {
   const files = fs.readdirSync(commandsFolder)
-  const commands = files.map(f => f.split('.')[0])
+  const commands = files.map((f) => f.split('.')[0])
 
   return commands
 }
@@ -36,7 +37,9 @@ if (mainArgs.length < 1) {
 const commandToExecute = mainArgs[0]
 
 if (!commandToExecute) {
-  console.log('No command provided')
+  console.log(red('No command provided'))
+  console.log(bold(cyan('\nOpinionated configs on the go')))
+  console.log(cyan('Visit https://github.com/pablopunk/punk for more info\n'))
   process.exit(1)
 }
 
