@@ -1,10 +1,10 @@
 {
-  "name": "beer-me-jim",
+  "name": "punk",
   "description": "CLI tool to provide custom configurations on the go",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "author": "Pablo Varela <pablovarela182@gmail.com>",
   "bugs": {
-    "url": "https://github.com/pablopunk/beer-me-jim/issues",
+    "url": "https://github.com/pablopunk/punk/issues",
     "email": "pablovarela182@gmail.com"
   },
   "contributors": [
@@ -19,10 +19,10 @@
     "husky": "*"
   },
   "scripts": {},
-  "homepage": "https://github.com/pablopunk/beer-me-jim",
+  "homepage": "https://github.com/pablopunk/punk",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pablopunk/beer-me-jim"
+    "url": "https://github.com/pablopunk/punk"
   },
   "keywords": [
     "provider",
@@ -36,7 +36,7 @@
   "license": "MIT",
   "main": "index.js",
   "bin": {
-    "beerme": "index.js"
+    "punk": "index.js"
   },
   "husky": {
     "hooks": {
