@@ -9,24 +9,24 @@
   <i>CLI tool to provide custom configurations on the go</i>
 </p>
 
-## Install
-
-```bash
-npm install -g punk
-```
-
 ## Usage
 
 Show commands available:
 
 ```bash
-$ punk --help
+$ npx punk --h
+```
+
+Use command:
+
+```bash
+$ npx punk <command>
 ```
 
 You can pass arguments to commands too:
 
 ```bash
-$ punk prettier -h
+$ npx punk prettier -h
 ```
 
 ## License
@@ -37,4 +37,4 @@ MIT
 
 | ![me](https://gravatar.com/avatar/fa50aeff0ddd6e63273a068b04353d9d?size=100) |
 | ---------------------------------------------------------------------------- |
-| [Pablo Varela](https://pablo.life)                                           |
+| [Pablo Varela](https://pablo.pink)                                           |

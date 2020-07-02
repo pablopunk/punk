@@ -27,7 +27,7 @@ if (mainArgs.length < 1) {
     console.log(`
     Commands available:
 
-    ${getCommandsAvailable().join('\n  ')}
+    ${getCommandsAvailable().join('\n    ')}
     `)
 
     process.exit(0)

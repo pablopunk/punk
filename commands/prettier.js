@@ -4,23 +4,23 @@ const fs = require('fs')
 const devDeps = {
   husky: '*',
   prettier: '*',
-  'pretty-quick': '*'
+  'pretty-quick': '*',
 }
 
 const additions = {
   husky: {
     hooks: {
-      'pre-commit': 'pretty-quick --staged'
-    }
+      'pre-commit': 'pretty-quick --staged',
+    },
   },
   prettier: {
     semi: false,
     singleQuote: true,
-    tabWidth: 2
-  }
+    tabWidth: 2,
+  },
 }
 
-module.exports = args => {
+module.exports = (args) => {
   if (args.h || args.help) {
     console.log(`
     $ beerme prettier [ -h || --help ]
@@ -33,7 +33,7 @@ module.exports = args => {
     Notice there will be 2 more config objects in your package.json:
 ${JSON.stringify(additions, null, 4)
   .split('\n')
-  .map(_ => '    ' + _)
+  .map((_) => '    ' + _)
   .join('\n')}
     `)
 
@@ -76,6 +76,6 @@ ${JSON.stringify(additions, null, 4)
   fs.writeFile(
     packageJsonFile,
     JSON.stringify(pkg, null, 2),
-    err => err && console.log(err.message)
+    (err) => err && console.log(err.message)
   )
 }
