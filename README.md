@@ -14,7 +14,7 @@
 Show commands available:
 
 ```bash
-$ npx punk --h
+$ npx punk -h
 ```
 
 Use command:
