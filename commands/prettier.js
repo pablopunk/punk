@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const pkg = require('../package.json')
 
 const devDeps = {
   husky: '*',
@@ -23,7 +24,7 @@ const additions = {
 module.exports = (args) => {
   if (args.h || args.help) {
     console.log(`
-    $ beerme prettier [ -h || --help ]
+    $ ${pkg.name} prettier [ -h || --help ]
 
     Sets up prettier to format all modified files before you commit them.
     It will install some devDependencies to your package.json:
