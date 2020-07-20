@@ -1,4 +1,4 @@
-const { spawnSync } = require('child_process')
+const { spawnSync, spawn } = require('child_process')
 const path = require('path')
 const fs = require('fs')
 const globalPackage = require('../package.json')
@@ -16,11 +16,15 @@ function getCommandsToExecute(args) {
   const { init, react, typescript } = commadsToExecute
   const cmds = [init, react]
 
-  if (args.t || args.typescript) {
+  if (isTypescript(args)) {
     cmds.push(typescript)
   }
 
   return cmds
+}
+
+function isTypescript(args) {
+  return args.t || args.typescript
 }
 
 module.exports = (args) => {
@@ -68,4 +72,7 @@ module.exports = (args) => {
     JSON.stringify(pkg, null, 2),
     (err) => err && console.log(err.message)
   )
+
+  spawnSync('mkdir', ['pages'])
+  spawn('touch', [isTypescript(args) ? 'pages/index.tsx' : 'pages/index.js'])
 }
