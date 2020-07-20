@@ -27,6 +27,16 @@ function isTypescript(args) {
   return args.t || args.typescript
 }
 
+const gitignore = `
+.next
+.vercel
+out
+node_modules
+yarn.lock
+package-lock.json
+.DS_Store
+`
+
 module.exports = (args) => {
   if (args.h || args.help) {
     console.log(`
@@ -70,6 +80,16 @@ module.exports = (args) => {
   fs.writeFile(
     packageJsonFile,
     JSON.stringify(pkg, null, 2),
+    (err) => err && console.log(err.message)
+  )
+
+  fs.writeFile(
+    '.gitignore',
+    gitignore,
+    {
+      encoding: 'utf-8',
+      flag: 'a',
+    },
     (err) => err && console.log(err.message)
   )
 
