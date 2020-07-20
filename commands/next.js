@@ -1,5 +1,7 @@
 const { spawnSync } = require('child_process')
-const pkg = require('../package.json')
+const path = require('path')
+const fs = require('fs')
+const globalPackage = require('../package.json')
 
 const commadsToExecute = {
   init: ['yarn', ['init', '-y']],
@@ -24,7 +26,7 @@ function getCommandsToExecute(args) {
 module.exports = (args) => {
   if (args.h || args.help) {
     console.log(`
-    $ ${pkg.name} next [ -h || --help || -t || --typescript ]
+    $ ${globalPackage.name} next [ -h || --help || -t || --typescript ]
 
     Starts a yarn project and adds all dependencies to create
     aNextJS website with typescript support (if typescript option is passed):
@@ -32,6 +34,9 @@ module.exports = (args) => {
     ${Object.values(commadsToExecute)
       .map((c) => `${c[0]} ${c[1].join(' ')}`)
       .join('\n    ')}
+
+    It will also add next dev/start/build scripts to package.json
+
     `)
 
     return
@@ -40,4 +45,27 @@ module.exports = (args) => {
   for (const command of getCommandsToExecute(args)) {
     spawnSync(command[0], command[1], { stdio: 'inherit' })
   }
+
+  const packageJsonFile = path.join(process.cwd(), 'package.json')
+
+  try {
+    var pkg = require(packageJsonFile)
+  } catch (err) {
+    console.log(err.message)
+    process.exit(1)
+  }
+
+  if (!pkg.hasOwnProperty('scripts')) {
+    pkg.scripts = {
+      dev: 'next',
+      start: 'next start',
+      build: 'next build',
+    }
+  }
+
+  fs.writeFile(
+    packageJsonFile,
+    JSON.stringify(pkg, null, 2),
+    (err) => err && console.log(err.message)
+  )
 }

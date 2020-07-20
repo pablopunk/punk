@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const pkg = require('../package.json')
+const globalPackage = require('../package.json')
 
 const devDeps = {
   husky: '*',
