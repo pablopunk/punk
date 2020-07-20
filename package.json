@@ -21,10 +21,7 @@
   },
   "scripts": {},
   "homepage": "https://github.com/pablopunk/punk",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pablopunk/punk"
-  },
+  "repository": "https://github.com/pablopunk/punk",
   "keywords": [
     "provider",
     "configuration",
