@@ -2,13 +2,13 @@
   "name": "punk",
   "description": "CLI tool to provide custom configurations on the go",
   "version": "5.0.0",
-  "author": "Pablo Varela <pablovarela182@gmail.com>",
+  "author": "Pablo Varela <pablo@pablopunk.com>",
   "bugs": {
     "url": "https://github.com/pablopunk/punk/issues",
-    "email": "pablovarela182@gmail.com"
+    "email": "pablo@pablopunk.com"
   },
   "contributors": [
-    "Pablo Varela <pablovarela182@gmail.com>"
+    "Pablo Varela <pablo@pablopunk.com>"
   ],
   "dependencies": {
     "kleur": "^3.0.3",
