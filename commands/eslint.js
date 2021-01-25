@@ -15,14 +15,16 @@ parser: '@typescript-eslint/parser'`
   }
 parserOptions:
   ecmaVersion: 12
-  sourceType: module ${
+  sourceType: module
+  ${
     react
       ? `ecmaFeatures:
     jsx: true`
       : ``
   } ${
     ts || react
-      ? `plugins: ${
+      ? `
+plugins: ${
           ts
             ? `
   - '@typescript-eslint'`
