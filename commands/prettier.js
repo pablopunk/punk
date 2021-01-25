@@ -24,7 +24,7 @@ const additions = {
 module.exports = (args) => {
   if (args.h || args.help) {
     console.log(`
-    $ ${pkg.name} prettier [ -h || --help ]
+    $ ${globalPackage.name} prettier [ -h || --help ]
 
     Sets up prettier to format all modified files before you commit them.
     It will install some devDependencies to your package.json:

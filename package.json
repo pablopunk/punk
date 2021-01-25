@@ -17,9 +17,16 @@
   "devDependencies": {
     "husky": "*",
     "prettier": "*",
-    "pretty-quick": "*"
+    "pretty-quick": "*",
+    "eslint": "*",
+    "eslint-plugin-node": "*",
+    "eslint-plugin-promise": "*",
+    "eslint-plugin-import": "*"
   },
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint --ext .js --ext .jsx .",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx ."
+  },
   "homepage": "https://github.com/pablopunk/punk",
   "repository": "https://github.com/pablopunk/punk",
   "keywords": [
