@@ -1,7 +1,7 @@
 {
   "name": "punk",
   "description": "CLI tool to provide custom configurations on the go",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "author": "Pablo Varela <pablo@pablopunk.com>",
   "bugs": {
     "url": "https://github.com/pablopunk/punk/issues",
