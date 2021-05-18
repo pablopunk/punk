@@ -33,7 +33,6 @@ const gitignore = `
 out
 node_modules
 yarn.lock
-package-lock.json
 .DS_Store
 `
 
