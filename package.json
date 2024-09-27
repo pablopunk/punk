@@ -1,8 +1,8 @@
 {
   "name": "punk",
   "version": "0.0.1",
+  "author": "Pablo Varela <pablo@pablopunk.com>",
   "main": "server.ts",
-  "bin": "bin/punk.js",
   "devDependencies": {
     "@biomejs/biome": "1.9.2",
     "@types/bun": "latest",
@@ -11,11 +11,7 @@
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.26"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
+  "bin": "bin/punk.js",
   "keywords": ["bun", "web-framework", "cli", "punk", "fast", "slow", "automatic", "no-build", "no-config", "react", "typescript", "api", "http", "web"],
-  "author": "Pablo Varela <pablo@pablopunk.com>",
   "license": "MIT"
 }
