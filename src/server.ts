@@ -5,8 +5,9 @@ import path from "node:path";
 
 const PORT = process.env.PORT || 3000;
 const PAGES_PATH = path.resolve(process.cwd(), "./pages");
+const STATIC_PATH = process.cwd();
 
-async function handleTsxRequest(filePath: string, req: Request) {
+async function renderTsxComponent(filePath: string): Promise<Response> {
 	const module = await import(`${filePath}.tsx`);
 	const Component = module.default;
 	const stream = await renderToReadableStream(
@@ -15,30 +16,58 @@ async function handleTsxRequest(filePath: string, req: Request) {
 	return new Response(stream, { headers: { "Content-Type": "text/html" } });
 }
 
-async function handleTsRequest(filePath: string, req: Request) {
+async function executeTsHandler(
+	filePath: string,
+	req: Request,
+): Promise<Response> {
 	const module = await import(`${filePath}.ts`);
 	const handler = module.default;
 	return await handler(req);
 }
 
-async function handleRequest(req: Request) {
+function normalizeFilePath(url: URL): string {
+	const filePath = path.join(PAGES_PATH, url.pathname);
+
+	if (url.pathname === "/") {
+		return path.join(PAGES_PATH, "index");
+	}
+
+	return url.pathname.endsWith("/") ? filePath.slice(0, -1) : filePath;
+}
+
+async function fileExists(
+	filePath: string,
+	extension: string,
+): Promise<boolean> {
+	return await Bun.file(`${filePath}${extension}`).exists();
+}
+
+async function serveStaticFile(filePath: string): Promise<Response> {
+	const file = Bun.file(filePath);
+	if (await file.exists()) {
+		return new Response(file);
+	}
+	return new Response("Not Found", { status: 404 });
+}
+
+async function handleRequest(req: Request): Promise<Response> {
 	const url = new URL(req.url);
-	let filePath = path.join(PAGES_PATH, url.pathname);
+	const filePath = normalizeFilePath(url);
 
 	console.log(`[${req.method}] ${url.pathname}`);
 
-	if (url.pathname === "/") {
-		filePath = path.join(PAGES_PATH, "index");
-	} else if (url.pathname.endsWith("/")) {
-		filePath = filePath.slice(0, -1);
+	// Check for static files first
+	const staticFilePath = path.join(STATIC_PATH, url.pathname);
+	if (await Bun.file(staticFilePath).exists()) {
+		return await serveStaticFile(staticFilePath);
 	}
 
-	if (await Bun.file(`${filePath}.tsx`).exists()) {
-		return await handleTsxRequest(filePath, req);
+	if (await fileExists(filePath, ".tsx")) {
+		return await renderTsxComponent(filePath);
 	}
 
-	if (await Bun.file(`${filePath}.ts`).exists()) {
-		return await handleTsRequest(filePath, req);
+	if (await fileExists(filePath, ".ts")) {
+		return await executeTsHandler(filePath, req);
 	}
 
 	return new Response("Not Found", { status: 404 });
