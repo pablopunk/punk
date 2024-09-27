@@ -2,19 +2,19 @@
 
 > The no-build web framework
 
-### Requirements
+## Requirements
 
 You need [`bun.sh`](https://bun.sh).
 
-### Install
+## Install
 
 ```bash
 npm install punk
 ```
 
-### Run
+## Run
 
-#### React
+### React
 
 Create a `pages/index.tsx`. You can use **React and Typescript without any config**.
 
@@ -32,7 +32,7 @@ $ punk
 
 Visit [localhost:3000](https://localhost:3000) and that's it!
 
-#### API routes
+### API routes
 
 You can also create HTTP endpoints. Just create a non-jsx file (no `x` in the file extension) like `pages/users.ts`:
 
