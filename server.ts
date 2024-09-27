@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 
 import { serve } from "bun";
-import { renderToString } from "react-dom/server";
+import { renderToReadableStream } from "react-dom/server.browser";
 import React from "react";
 import path from "node:path";
 
@@ -26,12 +26,15 @@ serve({
 		try {
 			const module = await import(`${filePath}.tsx`);
 			const Component = module.default;
-			const html = renderToString(React.createElement(Component));
-			return new Response(`<!DOCTYPE html>${html}`, {
+			const stream = await renderToReadableStream(
+				React.createElement(Component, {}),
+			);
+			return new Response(stream, {
 				headers: { "Content-Type": "text/html" },
 			});
 		} catch (errTsx) {
 			// If .tsx not found, try .ts
+			console.error(errTsx);
 			try {
 				const module = await import(`${filePath}.ts`);
 				const handler = module.default;
