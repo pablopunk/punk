@@ -4,7 +4,7 @@ const { spawn } = require("node:child_process");
 const path = require("node:path");
 
 // Path to the server script
-const serverScript = path.resolve(__dirname, "../server.ts");
+const serverScript = path.resolve(__dirname, "../src/server.ts");
 
 // Start the Bun server
 const bunProcess = spawn("bun", ["--hot", serverScript], { stdio: "inherit" });
