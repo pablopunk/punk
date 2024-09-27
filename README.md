@@ -2,7 +2,6 @@
 
 > The no-build web framework. Don't compile. Don't transpile. Just run.
 
-
 https://github.com/user-attachments/assets/00098cf0-7324-4755-a5e9-32928b4abc80
 
 No. This is not _NextJS_. There's no _webpack_, no _turbopack_, nothing. It's just _bun_ running your files on demand.
@@ -21,7 +20,7 @@ npm install punk
 
 ### React
 
-Create a `pages/index.tsx`. You can use **React and Typescript without any config**.
+Create a `pages/index.tsx`. You can use **React and Typescript without any config**. It's all **SSR**.
 
 ```tsx
 export default function App() {
