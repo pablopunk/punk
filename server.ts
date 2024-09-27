@@ -1,5 +1,3 @@
-#!/usr/bin/env bun
-
 import { serve } from "bun";
 import { renderToReadableStream } from "react-dom/server.browser";
 import React from "react";
@@ -29,24 +27,20 @@ async function handleRequest(req: Request) {
 
 	console.log(`[${req.method}] ${url.pathname}`);
 
-	// Handle root path and trailing slashes
 	if (url.pathname === "/") {
 		filePath = path.join(PAGES_PATH, "index");
 	} else if (url.pathname.endsWith("/")) {
 		filePath = filePath.slice(0, -1);
 	}
 
-	// Check if TSX file exists
 	if (await Bun.file(`${filePath}.tsx`).exists()) {
 		return await handleTsxRequest(filePath, req);
 	}
 
-	// Check if TS file exists
 	if (await Bun.file(`${filePath}.ts`).exists()) {
 		return await handleTsRequest(filePath, req);
 	}
 
-	// If neither TSX nor TS file exists, return 404
 	return new Response("Not Found", { status: 404 });
 }
 
